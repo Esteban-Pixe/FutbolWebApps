@@ -1,5 +1,5 @@
-﻿// C:\DataFlex Projects\FutbolWebApps\AppSrc\SelectPosicion.wo
-// Posicion
+﻿// C:\DataFlex Projects\FutbolWebApp\AppSrc\SelectPosicion.wo
+// SelectPosicion
 //
 
 Use cWebView.pkg
@@ -13,7 +13,7 @@ Use ZoomPosicion.wo
 Use cposicionDataDictionary.dd
 
 Object oSelectPosicion is a cWebView
-    Set psCaption to "Posicion"
+    Set psCaption to "SelectPosicion"
     Set peWebViewStyle to wvsDrilldown
     Set peViewType to vtSelect
     Set piColumnCount to 12
@@ -37,7 +37,7 @@ Object oSelectPosicion is a cWebView
 
         Object oposicionNombre is a cWebColumn
             Entry_Item posicion.Nombre
-            Set psCaption to "posicion.Nombre"
+            Set psCaption to "Posición"
             Set piWidth to 500
             Set psCSSClass to "RowCaption"
         End_Object 
@@ -100,6 +100,20 @@ Object oSelectPosicion is a cWebView
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup
+        Set psGroupName to "MainActions"
+        
+        Object oBackBtn is a cWebMenuItem
+
+            Set psCaption to "Back"
+            Set peActionDisplay to adBoth
+            Set psImage to "Images/back.svg"
+            
+            Procedure OnClick
+                Send NavigateCancel Self
+            End_Procedure
+
+        End_Object
+        
 
         Object oSearch is a cWebMenuItem
             Set psCSSClass to "WebPromptMenuItem"

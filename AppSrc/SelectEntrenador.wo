@@ -1,4 +1,4 @@
-﻿// C:\DataFlex Projects\FutbolWebApps\AppSrc\SelectEntrenador.wo
+﻿// C:\DataFlex Projects\FutbolWebApp\AppSrc\SelectEntrenador.wo
 // Entrenador
 //
 
@@ -48,30 +48,23 @@ Object oSelectEntrenador is a cWebView
         Object oentrenadorNombre is a cWebColumn
             Entry_Item entrenador.Nombre
             Set psCaption to "Nombre"
-            Set piWidth to 328
+            Set piWidth to 600
             Set psCSSClass to "RowCaption"
         End_Object 
 
         Object oentrenadorApellido is a cWebColumn
             Entry_Item entrenador.Apellido
             Set psCaption to "Apellido"
-            Set piWidth to 373
+            Set piWidth to 600
             Set psCSSClass to "RowCaption"
-        End_Object 
-
-        Object oequipoNombre is a cWebColumn
-            Entry_Item equipo.Nombre
-            Set psCaption to "Equipo"
-            Set piWidth to 349
-            Set psCSSClass to "RowDetail"
         End_Object 
 
         Object oDetailButton is a cWebColumnButton
             Set psCaption to "btn"
-            Set piWidth to 118
+            Set piWidth to 45
             Set pbFixedWidth to True
             Set pbResizable to False
-            Set piListRowSpan to 1
+            Set piListRowSpan to 2
             Set psBtnCssClass to "WebButtonIcon WebIcon_Info"
             Set peAlign to alignRight
 
@@ -87,6 +80,13 @@ Object oSelectEntrenador is a cWebView
 
         End_Object 
 
+        Object oequipoNombre is a cWebColumn
+            Entry_Item equipo.Nombre
+            Set psCaption to "equipo.Nombre"
+            Set piWidth to 1201
+            Set pbNewLine to True
+            Set psCSSClass to "RowDetail"
+        End_Object 
 
         WebRegisterPath ntNavigateForward oZoomEntrenador
 
@@ -124,6 +124,19 @@ Object oSelectEntrenador is a cWebView
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup
+        Set psGroupName to "MainActions"
+        
+        Object oBackBtn is a cWebMenuItem
+
+            Set psCaption to "Back"
+            Set peActionDisplay to adBoth
+            Set psImage to "Images/back.svg"
+            
+            Procedure OnClick
+                Send NavigateCancel Self
+            End_Procedure
+
+        End_Object
 
         Object oSearch is a cWebMenuItem
             Set psCSSClass to "WebPromptMenuItem"
